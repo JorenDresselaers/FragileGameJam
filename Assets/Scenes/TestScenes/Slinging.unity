@@ -1190,7 +1190,7 @@ PrefabInstance:
       objectReference: {fileID: 2100744410}
     - target: {fileID: 2496192797741365426, guid: ccb47b0c63fdaa14a9a40860a17d54d5, type: 3}
       propertyPath: retractspeed
-      value: 15
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2496192797741365427, guid: ccb47b0c63fdaa14a9a40860a17d54d5, type: 3}
       propertyPath: m_Name

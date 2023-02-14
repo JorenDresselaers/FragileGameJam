@@ -19,7 +19,7 @@ public class hook : MonoBehaviour
 	}
 
 	// Update is called once per frame
-	void FixedUpdate()
+	void Update()
 	{
 		if (!hooking)
 		{
