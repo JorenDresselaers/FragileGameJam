@@ -10,17 +10,22 @@ public class BreakableWall : MonoBehaviour
 	[SerializeField] private GameObject _wall;
 	[SerializeField] private BoxCollider2D _wallCollider2D;
 	[SerializeField] private ParticleSystem _particleSystem;
+	[SerializeField] private GameObject _brokenWall;
 
-	void OnCollisionEnter2D(Collision2D other)
+	void OnTriggerEnter2D(Collider2D other)
 	{
 		if (other.gameObject.CompareTag("Player"))
 		{
-			Vector3 playerVel = other.gameObject.GetComponent<Rigidbody>().velocity;
+			Vector3 playerVel = other.gameObject.GetComponent<Rigidbody2D>().velocity;
 			if (Vector3.Angle(playerVel, Vector3.left) > _impactAngle) // Wall shattered!
 			{
+				Transform tr = this.GetComponentInParent<Transform>();
+				Debug.Log(tr.position);
+				Instantiate(_brokenWall, tr.position, tr.rotation);
 				_particleSystem.Play();
 				Destroy(_wall);
-				Invoke("DestroyObject", 5.0f);
+				Invoke("DestroyObject", 2.0f);
+
 			}
 		}
 	}
