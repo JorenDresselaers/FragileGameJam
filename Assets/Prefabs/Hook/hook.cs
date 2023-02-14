@@ -40,7 +40,7 @@ public class hook : MonoBehaviour
 		if (hooked)
 		{
 			Vector3 toHook = rb.transform.position - player.transform.position;
-			player.AddForce(toHook);
+			player.velocity = toHook.normalized * retractspeed;
 		}
 	}
 
