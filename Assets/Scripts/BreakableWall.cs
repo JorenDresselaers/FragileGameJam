@@ -11,7 +11,7 @@ public class BreakableWall : MonoBehaviour
 	[SerializeField] private BoxCollider2D _wallCollider2D;
 	[SerializeField] private ParticleSystem _particleSystem;
 
-	void OnTriggerEnter(Collider other)
+	void OnCollisionEnter2D(Collision2D other)
 	{
 		if (other.gameObject.CompareTag("Player"))
 		{
