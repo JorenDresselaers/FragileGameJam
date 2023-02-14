@@ -6,7 +6,9 @@ public class hook : MonoBehaviour
 {
 	private Rigidbody2D rb;
 	private bool hooking = false;
+	private bool hooked = true;
 	[SerializeField] private float hookspeed;
+	[SerializeField] private float retractspeed;
 	[SerializeField] private Rigidbody2D player;
 
 
@@ -34,6 +36,12 @@ public class hook : MonoBehaviour
 		{
 			RetractSling();
 		}
+
+		if (hooked)
+		{
+			Vector3 toHook = rb.transform.position - player.transform.position;
+			player.AddForce(toHook);
+		}
 	}
 
 	void ShootSling(Vector3 slingPos)
@@ -48,6 +56,7 @@ public class hook : MonoBehaviour
 	void RetractSling()
 	{
 		hooking = false;
+		hooked = false;
 		rb.simulated = false;
 	}
 
@@ -56,5 +65,6 @@ public class hook : MonoBehaviour
 	void OnCollisionEnter2D(Collision2D col)
 	{
 		rb.simulated = false;
+		hooked = true;
 	}
 }
