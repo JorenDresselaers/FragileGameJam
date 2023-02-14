@@ -44,6 +44,12 @@ public class Movement : MonoBehaviour
                 if (_isOnGround) Jump(20);
             }
         }
+        else
+        {
+            float rotationDirection = Input.GetAxis(HORIZONTAL);
+            _rigidBody.rotation -= rotationDirection * _movementSpeed;
+
+        }
     }
 
     void Jump(float jumpForce)
