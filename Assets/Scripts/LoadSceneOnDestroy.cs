@@ -23,7 +23,6 @@ public class LoadSceneOnDestroy : MonoBehaviour
         if (_objectAssigned && !_triggerWhenDestroyed && !_hasTriggered)
         {
             _hasTriggered = true;
-            print("Destroyed");
             Invoke(LoadLevelMethod, _timeToLoad);
         }
     }

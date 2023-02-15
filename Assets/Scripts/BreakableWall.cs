@@ -19,7 +19,6 @@ public class BreakableWall : MonoBehaviour
 		{
 			Vector3 playerVel = other.gameObject.GetComponent<Rigidbody2D>().velocity;
 			float playerSpeed = playerVel.magnitude;
-			
 			if (CheckImpactAngle(playerVel, _impactAngle, _impactThreshold)) // Wall shattered!
 			{
 				Transform tr = _parentGameObject.GetComponentInParent<Transform>();
