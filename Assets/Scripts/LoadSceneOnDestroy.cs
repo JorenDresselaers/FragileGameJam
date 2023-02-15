@@ -9,6 +9,7 @@ public class LoadSceneOnDestroy : MonoBehaviour
     [SerializeField] private string _levelName = "Level01";
     [SerializeField] private float _timeToLoad = 0f;
     [SerializeField] private GameObject _triggerWhenDestroyed;
+    [SerializeField] private bool _triggeredAutomatically = false;
 
     private bool _objectAssigned = false;
     private bool _hasTriggered = false;
@@ -20,7 +21,7 @@ public class LoadSceneOnDestroy : MonoBehaviour
 
     void Update()
     {
-        if (_objectAssigned && !_triggerWhenDestroyed && !_hasTriggered)
+        if (_objectAssigned && !_triggerWhenDestroyed && !_hasTriggered && _triggeredAutomatically)
         {
             _hasTriggered = true;
             Invoke(LoadLevelMethod, _timeToLoad);
@@ -29,14 +30,14 @@ public class LoadSceneOnDestroy : MonoBehaviour
 
     void OnDestroy()
     {
-        if (!_triggerWhenDestroyed || !_objectAssigned)
+        if ((!_triggerWhenDestroyed || !_objectAssigned) && _triggeredAutomatically)
         {
             SceneManager.LoadScene(_levelName);
         }
     }
 
     private const string LoadLevelMethod = "LoadLevel";
-    void LoadLevel()
+    public void LoadLevel()
     {
         SceneManager.LoadScene(_levelName);
     }
