@@ -6,6 +6,7 @@ public class hook : MonoBehaviour
 {
 	private Rigidbody2D rb;
 	private SpriteRenderer sprite;
+	private LineRenderer line;
 	private bool hooking = false;
 	private bool hooked = true;
 	[SerializeField] private float hookspeed;
@@ -19,6 +20,7 @@ public class hook : MonoBehaviour
 	{
 		rb = GetComponent<Rigidbody2D>();
 		sprite = rb.GetComponent<SpriteRenderer>();
+		line = player.GetComponent<LineRenderer>();
 	}
 
 	// Update is called once per frame
@@ -55,6 +57,7 @@ public class hook : MonoBehaviour
 		hooking = true;
 		rb.simulated = true;
 		sprite.enabled = true;
+		line.enabled = true;
 
 		Vector3 toHook = slingPos - player.transform.position;
 
@@ -70,6 +73,7 @@ public class hook : MonoBehaviour
 		hooked = false;
 		rb.simulated = false;
 		sprite.enabled = false;
+		line.enabled = false;
 	}
 
 	// Update is called once per frame
