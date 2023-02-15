@@ -13,6 +13,14 @@ public class BreakableWall : MonoBehaviour
 	[SerializeField] private GameObject _brokenWall;
 	[SerializeField] private GameObject _parentGameObject;
 
+	private LoadSceneOnDestroy _loadSceneOnDestroy;
+
+	void Awake()
+	{
+		_loadSceneOnDestroy = GetComponentInParent<LoadSceneOnDestroy>();
+        if (_loadSceneOnDestroy) print("Loaded!");
+    }
+
 	void OnTriggerEnter2D(Collider2D other)
 	{
 		if (other.gameObject.CompareTag("Player"))
@@ -45,6 +53,7 @@ public class BreakableWall : MonoBehaviour
 
 	void DestroyObject()
 	{
+		if(_loadSceneOnDestroy) _loadSceneOnDestroy.LoadLevel();
 		Destroy(this);
-	}
+    }
 }
