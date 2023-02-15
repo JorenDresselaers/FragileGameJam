@@ -79,8 +79,6 @@ public class hook : MonoBehaviour
 		sprite.enabled = true;
 		line.enabled = true;
 
-		rb.simulated = true;
-
 		Vector3 toHook = slingPos - player.transform.position;
 
 		float rotz = Mathf.Atan2(toHook.y, toHook.x) * Mathf.Rad2Deg;
@@ -100,7 +98,6 @@ public class hook : MonoBehaviour
 
 	void OnCollisionEnter2D(Collision2D col)
 	{
-		rb.simulated = false;
 		hooked = true;
 		particle.Play();
 	}
