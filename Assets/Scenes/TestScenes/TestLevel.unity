@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 352964125}
   m_Layer: 0
   m_Name: Static Sprite (7)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -388,7 +388,7 @@ GameObject:
   - component: {fileID: 694045575}
   m_Layer: 0
   m_Name: Static Sprite (12)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -521,7 +521,7 @@ GameObject:
   - component: {fileID: 735900438}
   m_Layer: 0
   m_Name: Static Sprite (9)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -654,7 +654,7 @@ GameObject:
   - component: {fileID: 900582989}
   m_Layer: 0
   m_Name: Static Sprite (3)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -787,7 +787,7 @@ GameObject:
   - component: {fileID: 990807696}
   m_Layer: 0
   m_Name: Static Sprite (10)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -920,7 +920,7 @@ GameObject:
   - component: {fileID: 1125376036}
   m_Layer: 0
   m_Name: Static Sprite (4)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1053,7 +1053,7 @@ GameObject:
   - component: {fileID: 1623914600}
   m_Layer: 0
   m_Name: Static Sprite
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1186,7 +1186,7 @@ GameObject:
   - component: {fileID: 1879412628}
   m_Layer: 0
   m_Name: Static Sprite (8)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1324,7 +1324,7 @@ GameObject:
   - component: {fileID: 2138533176}
   m_Layer: 0
   m_Name: Static Sprite (6)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1590,6 +1590,14 @@ PrefabInstance:
     - target: {fileID: 2861992300470004205, guid: 0017f6fc69c2f0f408bfe76f6223ce5f, type: 3}
       propertyPath: m_GravityScale
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4626427976866835630, guid: 0017f6fc69c2f0f408bfe76f6223ce5f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4626427976866835630, guid: 0017f6fc69c2f0f408bfe76f6223ce5f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0017f6fc69c2f0f408bfe76f6223ce5f, type: 3}
