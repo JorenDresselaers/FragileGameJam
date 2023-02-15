@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 2100744415}
   - component: {fileID: 2100744416}
   - component: {fileID: 2100744417}
+  - component: {fileID: 1676448092361414699}
   m_Layer: 6
   m_Name: sling
   m_TagString: Player
@@ -273,6 +274,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StartPoint: {fileID: 2861992300470004202}
   EndPoint: {fileID: 0}
+--- !u!114 &1676448092361414699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2861992300470004201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45b1de2cd2e30e140bd99cb2b8ab4d3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6145232556813479270
 GameObject:
   m_ObjectHideFlags: 0
