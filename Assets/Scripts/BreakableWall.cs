@@ -15,10 +15,14 @@ public class BreakableWall : MonoBehaviour
 	[SerializeField] private AudioClip _breakWallClip;
 	private LoadSceneOnDestroy _loadSceneOnDestroy;
 
+    private AudioPlayer _audioPlayer;
+
 	void Awake()
 	{
 		_loadSceneOnDestroy = GetComponentInParent<LoadSceneOnDestroy>();
         if (_loadSceneOnDestroy) print("Loaded!");
+
+		_audioPlayer = FindAnyObjectByType<AudioPlayer>();
     }
 
 	void OnTriggerEnter2D(Collider2D other)
@@ -38,9 +42,8 @@ public class BreakableWall : MonoBehaviour
 				Invoke("DestroyObject", 1.0f);
 				//Destroy(_wall);
 				//play sound
-				if(_breakWallClip)
+				if(_breakWallClip && _audioPlayer)
 				{
-					AudioPlayer _audioPlayer = FindAnyObjectByType<AudioPlayer>();
 					_audioPlayer.PlayAudio(_breakWallClip);
 				}
 			}
