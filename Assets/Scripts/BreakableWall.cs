@@ -15,18 +15,35 @@ public class BreakableWall : MonoBehaviour
     [SerializeField] private AudioClip _shatterAudioClip;
     // [SerializeField] private AudioSource _shatterAudioSource;
 
-    private void Start()
-    {
-        // _shatterAudioSource = GetComponent<AudioSource>();
-        //_shatterAudioSource.clip = _shatterAudioClip;
-    }
+	void OnTriggerEnter2D(Collider2D other)
+	{
+		if (other.gameObject.CompareTag("Player"))
+		{
+			Vector3 playerVel = other.gameObject.GetComponent<Rigidbody2D>().velocity;
+			float playerSpeed = playerVel.magnitude;
+			if (CheckImpactAngle(playerVel, _impactAngle, _impactThreshold)) // Wall shattered!
+			{
+				Transform tr = _parentGameObject.GetComponentInParent<Transform>();
+				var wallInst = Instantiate(_brokenWall, tr.position, tr.rotation);
+				wallInst.transform.localScale = tr.localScale;
+				wallInst.GetComponent<BrokenWall>().SetCollisionInvalid(other, playerVel.normalized);
+				_particleSystem.Play();
+				_wall.SetActive(false);
+				Invoke("DestroyObject", 1.0f);
+				//Destroy(_wall);
+			}
+		}
+	}
 
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            Vector3 playerVel = other.gameObject.GetComponent<Rigidbody2D>().velocity;
-            float playerSpeed = playerVel.magnitude;
+	bool CheckImpactAngle(Vector3 impactVector, float impactAngle, float impactThreshold)
+	{
+		float playerSpeed = impactVector.magnitude;
+		if (((Vector3.Angle(impactVector, Vector3.left) > impactAngle) || (Vector3.Angle(impactVector, Vector3.right) > impactAngle)) && playerSpeed > impactThreshold)
+		{
+			return true;
+		}
+		return false;
+	}
 
             if (CheckImpactAngle(playerVel, _impactAngle, _impactThreshold)) // Wall shattered!
             {
