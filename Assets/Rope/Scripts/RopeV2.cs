@@ -37,6 +37,7 @@ public class RopeV2 : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (!StartPoint || !EndPoint) return;
         this.Simulate();
     }
 
