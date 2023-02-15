@@ -5,17 +5,22 @@ using UnityEngine;
 public class hook : MonoBehaviour
 {
 	private Rigidbody2D rb;
+	private SpriteRenderer sprite;
+	private LineRenderer line;
 	private bool hooking = false;
 	private bool hooked = true;
 	[SerializeField] private float hookspeed;
 	[SerializeField] private float retractspeed;
 	[SerializeField] private Rigidbody2D player;
+	[SerializeField] private ParticleSystem particle;
 
 
 	// Start is called before the first frame update
 	void Start()
 	{
 		rb = GetComponent<Rigidbody2D>();
+		sprite = rb.GetComponent<SpriteRenderer>();
+		line = player.GetComponent<LineRenderer>();
 	}
 
 	// Update is called once per frame
@@ -41,6 +46,9 @@ public class hook : MonoBehaviour
 		{
 			Vector3 toHook = rb.transform.position - player.transform.position;
 			player.velocity = toHook.normalized * retractspeed;
+
+			float rotz = Mathf.Atan2(toHook.y, toHook.x) * Mathf.Rad2Deg;
+			transform.rotation = Quaternion.Euler(0, 0, rotz);
 		}
 	}
 
@@ -48,8 +56,14 @@ public class hook : MonoBehaviour
 	{
 		hooking = true;
 		rb.simulated = true;
+		sprite.enabled = true;
+		line.enabled = true;
 
 		Vector3 toHook = slingPos - player.transform.position;
+
+		float rotz = Mathf.Atan2(toHook.y, toHook.x) * Mathf.Rad2Deg;
+		transform.rotation = Quaternion.Euler(0, 0, rotz);
+
 		rb.velocity = toHook * hookspeed;
 	}
 
@@ -58,6 +72,8 @@ public class hook : MonoBehaviour
 		hooking = false;
 		hooked = false;
 		rb.simulated = false;
+		sprite.enabled = false;
+		line.enabled = false;
 	}
 
 	// Update is called once per frame
@@ -66,5 +82,6 @@ public class hook : MonoBehaviour
 	{
 		rb.simulated = false;
 		hooked = true;
+		particle.Play();
 	}
 }
