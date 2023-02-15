@@ -28,7 +28,6 @@ public class Movement : MonoBehaviour
 
     void Update()
     {
-        print(_isOnGround);
         if (Animator)
             Animator.SetBool("IsGrounded", _isOnGround);
 

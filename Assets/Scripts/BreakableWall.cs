@@ -22,7 +22,6 @@ public class BreakableWall : MonoBehaviour
 			if (CheckImpactAngle(playerVel, _impactAngle, _impactThreshold)) // Wall shattered!
 			{
 				Transform tr = _parentGameObject.GetComponentInParent<Transform>();
-				Debug.Log(tr.position);
 				var wallInst = Instantiate(_brokenWall, tr.position, tr.rotation);
 				wallInst.transform.localScale = tr.localScale;
 				wallInst.GetComponent<BrokenWall>().SetCollisionInvalid(other, playerVel.normalized);
