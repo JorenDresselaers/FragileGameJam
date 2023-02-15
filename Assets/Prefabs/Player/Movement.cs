@@ -18,6 +18,8 @@ public class Movement : MonoBehaviour
 
     [SerializeField] float _movementSpeed = 1;
 
+    public Animator Animator;
+
     void Awake()
     {
         _rigidBody = GetComponent<Rigidbody2D>();
@@ -26,6 +28,10 @@ public class Movement : MonoBehaviour
 
     void Update()
     {
+        print(_isOnGround);
+        if (Animator)
+            Animator.SetBool("IsGrounded", _isOnGround);
+
         if (_canMove)
         {
             float horizontalMovement = Input.GetAxis(HORIZONTAL);
