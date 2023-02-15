@@ -804,6 +804,22 @@ PrefabInstance:
       propertyPath: whatIsPlatform.m_Bits
       value: 256
       objectReference: {fileID: 0}
+    - target: {fileID: 6156981832612746654, guid: b7f57874cb66faf42a41e544da9e96dc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6156981832612746654, guid: b7f57874cb66faf42a41e544da9e96dc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8270342356116876459, guid: b7f57874cb66faf42a41e544da9e96dc, type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: -0.0000016722679
+      objectReference: {fileID: 0}
+    - target: {fileID: 8270342356116876459, guid: b7f57874cb66faf42a41e544da9e96dc, type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: 0.00000043614705
+      objectReference: {fileID: 0}
     - target: {fileID: 8270342357552465442, guid: b7f57874cb66faf42a41e544da9e96dc, type: 3}
       propertyPath: m_Name
       value: HookPlayer
@@ -826,15 +842,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8270342357552465443, guid: b7f57874cb66faf42a41e544da9e96dc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.96
+      value: -6.89
       objectReference: {fileID: 0}
     - target: {fileID: 8270342357552465443, guid: b7f57874cb66faf42a41e544da9e96dc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.8
+      value: -3.94
       objectReference: {fileID: 0}
     - target: {fileID: 8270342357552465443, guid: b7f57874cb66faf42a41e544da9e96dc, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8270342357552465443, guid: b7f57874cb66faf42a41e544da9e96dc, type: 3}
       propertyPath: m_LocalRotation.w
