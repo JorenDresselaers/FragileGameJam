@@ -12,6 +12,13 @@ public class BreakableWall : MonoBehaviour
 	[SerializeField] private ParticleSystem _particleSystem;
 	[SerializeField] private GameObject _brokenWall;
 	[SerializeField] private GameObject _parentGameObject;
+	private LoadSceneOnDestroy _loadSceneOnDestroy;
+
+	void Awake()
+	{
+		_loadSceneOnDestroy = GetComponentInParent<LoadSceneOnDestroy>();
+        if (_loadSceneOnDestroy) print("Loaded!");
+    }
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
@@ -19,11 +26,9 @@ public class BreakableWall : MonoBehaviour
 		{
 			Vector3 playerVel = other.gameObject.GetComponent<Rigidbody2D>().velocity;
 			float playerSpeed = playerVel.magnitude;
-			
 			if (CheckImpactAngle(playerVel, _impactAngle, _impactThreshold)) // Wall shattered!
 			{
 				Transform tr = _parentGameObject.GetComponentInParent<Transform>();
-				Debug.Log(tr.position);
 				var wallInst = Instantiate(_brokenWall, tr.position, tr.rotation);
 				wallInst.transform.localScale = tr.localScale;
 				wallInst.GetComponent<BrokenWall>().SetCollisionInvalid(other, playerVel.normalized);
@@ -38,7 +43,7 @@ public class BreakableWall : MonoBehaviour
 	bool CheckImpactAngle(Vector3 impactVector, float impactAngle, float impactThreshold)
 	{
 		float playerSpeed = impactVector.magnitude;
-		if ((Vector3.Angle(impactVector, Vector3.left) > impactAngle) || (Vector3.Angle(impactVector, Vector3.right) > impactAngle) && playerSpeed > impactThreshold)
+		if (((Vector3.Angle(impactVector, Vector3.left) > impactAngle) || (Vector3.Angle(impactVector, Vector3.right) > impactAngle)) && playerSpeed > impactThreshold)
 		{
 			return true;
 		}
@@ -47,6 +52,7 @@ public class BreakableWall : MonoBehaviour
 
 	void DestroyObject()
 	{
+		if(_loadSceneOnDestroy) _loadSceneOnDestroy.LoadLevel();
 		Destroy(this);
-	}
+    }
 }
