@@ -133,6 +133,7 @@ MonoBehaviour:
   _levelName: Level01
   _timeToLoad: 3
   _triggerWhenDestroyed: {fileID: 6709494293694001110}
+  _triggeredAutomatically: 0
 --- !u!1 &442022959988664933
 GameObject:
   m_ObjectHideFlags: 0
@@ -5792,6 +5793,7 @@ MonoBehaviour:
   _particleSystem: {fileID: 8962808185582341271}
   _brokenWall: {fileID: 6264765850770874877, guid: a020a39a6dcf0da4380144384cc2d915, type: 3}
   _parentGameObject: {fileID: 241949717962422180}
+  _breakWallClip: {fileID: 8300000, guid: 5acf4690496d6c8459748c53afd28032, type: 3}
 --- !u!1 &8354578706511061458
 GameObject:
   m_ObjectHideFlags: 0
