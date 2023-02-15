@@ -131,7 +131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _levelName: Level01
-  _timeToLoad: 0
+  _timeToLoad: 3
   _triggerWhenDestroyed: {fileID: 6709494293694001110}
 --- !u!1 &442022959988664933
 GameObject:
