@@ -36,7 +36,7 @@ public class BreakableWall : MonoBehaviour
 	bool CheckImpactAngle(Vector3 impactVector, float impactAngle, float impactThreshold)
 	{
 		float playerSpeed = impactVector.magnitude;
-		if ((Vector3.Angle(impactVector, Vector3.left) > impactAngle) || (Vector3.Angle(impactVector, Vector3.right) > impactAngle) && playerSpeed > impactThreshold)
+		if (((Vector3.Angle(impactVector, Vector3.left) > impactAngle) || (Vector3.Angle(impactVector, Vector3.right) > impactAngle)) && playerSpeed > impactThreshold)
 		{
 			return true;
 		}
