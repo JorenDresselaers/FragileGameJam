@@ -23,7 +23,7 @@ public class BreakableWall : MonoBehaviour
 				Transform tr = this.GetComponentInParent<Transform>();
 				Debug.Log(tr.position);
 				var wallInst = Instantiate(_brokenWall, tr.position, tr.rotation);
-				wallInst.GetComponent<BrokenWall>().SetCollisionInvalid(other);
+                wallInst.GetComponent<BrokenWall>().SetCollisionInvalid(other);
 				_particleSystem.Play();
 				Destroy(_wall);
 				Invoke("DestroyObject", 2.0f);
