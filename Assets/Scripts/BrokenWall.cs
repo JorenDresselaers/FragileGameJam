@@ -33,10 +33,10 @@ public class BrokenWall : MonoBehaviour
 		foreach (var collider2D in GetComponentsInChildren<Collider2D>())
 		{
 			Vector2 collisionDir = collisionPos - new Vector2(collider2D.transform.position.x, collider2D.transform.position.y);
-			Vector2 forceDir = new Vector2((1 / -collisionDir.magnitude) * _force, 0.0f);
-			if (Mathf.Abs(forceDir.x) < 30.0f)
+			Vector2 forceDir = new Vector2((1 / collisionDir.magnitude) * _force, 0.0f);
+			if (Mathf.Abs(forceDir.x) < 20.0f)
 			{
-				forceDir.x = 30.0f * Mathf.Sign(-collisionDir.magnitude);
+				forceDir.x = 20.0f * Mathf.Sign(collisionDir.magnitude);
 			}
 			Debug.DrawLine(new Vector3(collisionPos.x, collisionPos.y, 0.0f), collider2D.transform.position, Color.red);
 			collider2D.attachedRigidbody.AddForce(forceDir);
