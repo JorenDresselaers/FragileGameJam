@@ -14,6 +14,7 @@ public class Movement : MonoBehaviour
     private BoxCollider2D _collider;
 
     private bool _isOnGround = false;
+    [SerializeField] private bool _canMove = false;
 
     [SerializeField] float _movementSpeed = 1;
 
@@ -25,11 +26,29 @@ public class Movement : MonoBehaviour
 
     void Update()
     {
-        float horizontalMovement = Input.GetAxis(HORIZONTAL);
-        _rigidBody.velocity = new Vector3(horizontalMovement * _movementSpeed, 0);
-        if (Input.GetAxis(VERTICAL) > 0)
+        if (_canMove)
         {
-            if(_isOnGround) Jump(20);
+            float horizontalMovement = Input.GetAxis(HORIZONTAL);
+            if (horizontalMovement != 0)
+            {
+
+                //_rigidBody.velocity = new Vector3(
+                //    Mathf.Clamp(_rigidBody.velocity.x + horizontalMovement * _movementSpeed, -10, 10),
+                //    _rigidBody.velocity.y);
+
+                _rigidBody.AddForce(Vector2.right * horizontalMovement * _movementSpeed);
+            }
+
+            if (Input.GetAxis(VERTICAL) > 0)
+            {
+                if (_isOnGround) Jump(20);
+            }
+        }
+        else
+        {
+            float rotationDirection = Input.GetAxis(HORIZONTAL);
+            _rigidBody.rotation -= rotationDirection * _movementSpeed;
+
         }
     }
 
