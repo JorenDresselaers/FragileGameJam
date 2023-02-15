@@ -14,7 +14,7 @@ public class RopeV2 : MonoBehaviour
     private List<RopeSegment> ropeSegments = new List<RopeSegment>();
     private float ropeSegLen = 0.01f;
     private int segmentLength = 50; // Amount of segments
-    private float lineWidth = 3f;
+    private float lineWidth = 1.3f;
 
     // Use this for initialization
     void Start()
