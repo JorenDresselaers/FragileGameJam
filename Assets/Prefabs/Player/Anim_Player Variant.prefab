@@ -153,7 +153,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 10e503a8d62b8c44d9f5fca773590c13, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -206,7 +206,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2861992300470004201, guid: 0017f6fc69c2f0f408bfe76f6223ce5f, type: 3}
       propertyPath: m_Name
-      value: Anim_Player
+      value: Anim_Player Variant
       objectReference: {fileID: 0}
     - target: {fileID: 2861992300470004202, guid: 0017f6fc69c2f0f408bfe76f6223ce5f, type: 3}
       propertyPath: m_RootOrder
@@ -214,23 +214,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2861992300470004202, guid: 0017f6fc69c2f0f408bfe76f6223ce5f, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.6
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 2861992300470004202, guid: 0017f6fc69c2f0f408bfe76f6223ce5f, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.6
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 2861992300470004202, guid: 0017f6fc69c2f0f408bfe76f6223ce5f, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.6
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 2861992300470004202, guid: 0017f6fc69c2f0f408bfe76f6223ce5f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.75
+      value: -7.0325646
       objectReference: {fileID: 0}
     - target: {fileID: 2861992300470004202, guid: 0017f6fc69c2f0f408bfe76f6223ce5f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.02
+      value: 2.0480056
       objectReference: {fileID: 0}
     - target: {fileID: 2861992300470004202, guid: 0017f6fc69c2f0f408bfe76f6223ce5f, type: 3}
       propertyPath: m_LocalPosition.z
