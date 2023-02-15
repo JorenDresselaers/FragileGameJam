@@ -1126,7 +1126,6 @@ LineRenderer:
   m_SortingOrder: 0
   m_Positions:
   - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 1}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -1135,7 +1134,7 @@ LineRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 1
+        value: 0.12068939
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -1391,6 +1390,14 @@ PrefabInstance:
     - target: {fileID: 2496192797741365430, guid: ccb47b0c63fdaa14a9a40860a17d54d5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2496192797741365431, guid: ccb47b0c63fdaa14a9a40860a17d54d5, type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2496192797741365431, guid: ccb47b0c63fdaa14a9a40860a17d54d5, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 320150459
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ccb47b0c63fdaa14a9a40860a17d54d5, type: 3}
