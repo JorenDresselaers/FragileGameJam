@@ -12,7 +12,6 @@ public class BreakableWall : MonoBehaviour
 	[SerializeField] private ParticleSystem _particleSystem;
 	[SerializeField] private GameObject _brokenWall;
 	[SerializeField] private GameObject _parentGameObject;
-
 	private LoadSceneOnDestroy _loadSceneOnDestroy;
 
 	void Awake()
