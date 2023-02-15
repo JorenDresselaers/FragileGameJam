@@ -12,24 +12,28 @@ public class Movement : MonoBehaviour
 
     private Rigidbody2D _rigidBody;
     private BoxCollider2D _collider;
+    private SpriteRenderer _renderer;
 
     private bool _isOnGround = false;
     [SerializeField] private bool _canMove = false;
 
     [SerializeField] float _movementSpeed = 1;
 
-    public Animator Animator;
+    public Animator _animator;
 
     void Awake()
     {
         _rigidBody = GetComponent<Rigidbody2D>();
         _collider = GetComponent<BoxCollider2D>();
+        _renderer = GetComponentInChildren<SpriteRenderer>();
     }
 
     void Update()
     {
-        if (Animator)
-            Animator.SetBool("IsGrounded", _isOnGround);
+        if (_animator)
+            _animator.SetBool("IsGrounded", _isOnGround);
+        
+        if(_renderer) _renderer.flipX = _rigidBody.velocity.x < -1;
 
         if (_canMove)
         {

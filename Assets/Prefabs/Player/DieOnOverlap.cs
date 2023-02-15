@@ -30,7 +30,7 @@ public class DieOnOverlap : MonoBehaviour
             if (collision.collider.CompareTag(PlatformTag))
             {
                 Invoke(KILL_METHODNAME, 3);
-                _renderer.enabled = false;
+                //_renderer.enabled = false;
                 //Already destroy the hook so we cant hook while dead
                 hook _temp = FindFirstObjectByType<hook>();
                 if(_temp)
