@@ -5,17 +5,27 @@ using UnityEngine;
 public class hook : MonoBehaviour
 {
 	private Rigidbody2D rb;
+	private SpriteRenderer sprite;
+	private LineRenderer line;
 	private bool hooking = false;
 	private bool hooked = true;
 	[SerializeField] private float hookspeed;
 	[SerializeField] private float retractspeed;
 	[SerializeField] private Rigidbody2D player;
+	[SerializeField] private ParticleSystem particle;
+
+	public float checkRadius;
+	public LayerMask whatIsPlatform;
+
+	bool M1 = false;
 
 
 	// Start is called before the first frame update
 	void Start()
 	{
 		rb = GetComponent<Rigidbody2D>();
+		sprite = rb.GetComponent<SpriteRenderer>();
+		line = player.GetComponent<LineRenderer>();
 	}
 
 	// Update is called once per frame
@@ -30,26 +40,52 @@ public class hook : MonoBehaviour
 		{
 			Vector3 slingPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 			ShootSling(slingPos);
+			M1 = true;
 		}
 
-		if (!Input.GetMouseButton(0))
+		if (Input.GetMouseButtonDown(1))
+		{
+			Vector3 slingPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+			ShootSling(slingPos);
+		}
+
+		if (!Input.GetMouseButton(0) && !Input.GetMouseButton(1))
 		{
 			RetractSling();
+			M1 = false;
 		}
 
-		if (hooked)
+		if (Physics2D.OverlapCircle(rb.position, checkRadius, whatIsPlatform))
+		{
+			hooked = true;
+			rb.constraints = RigidbodyConstraints2D.FreezeAll;
+		}
+
+		if (hooked && M1)
 		{
 			Vector3 toHook = rb.transform.position - player.transform.position;
 			player.velocity = toHook.normalized * retractspeed;
+
+			float rotz = Mathf.Atan2(toHook.y, toHook.x) * Mathf.Rad2Deg;
+			transform.rotation = Quaternion.Euler(0, 0, rotz);
 		}
+
+
 	}
 
 	void ShootSling(Vector3 slingPos)
 	{
 		hooking = true;
+		sprite.enabled = true;
+		line.enabled = true;
+
 		rb.simulated = true;
 
 		Vector3 toHook = slingPos - player.transform.position;
+
+		float rotz = Mathf.Atan2(toHook.y, toHook.x) * Mathf.Rad2Deg;
+		transform.rotation = Quaternion.Euler(0, 0, rotz);
+
 		rb.velocity = toHook * hookspeed;
 	}
 
@@ -57,14 +93,15 @@ public class hook : MonoBehaviour
 	{
 		hooking = false;
 		hooked = false;
-		rb.simulated = false;
+		rb.constraints = RigidbodyConstraints2D.None;
+		sprite.enabled = false;
+		line.enabled = false;
 	}
-
-	// Update is called once per frame
 
 	void OnCollisionEnter2D(Collision2D col)
 	{
 		rb.simulated = false;
 		hooked = true;
+		particle.Play();
 	}
 }
