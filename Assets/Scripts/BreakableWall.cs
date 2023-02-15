@@ -12,6 +12,7 @@ public class BreakableWall : MonoBehaviour
 	[SerializeField] private ParticleSystem _particleSystem;
 	[SerializeField] private GameObject _brokenWall;
 	[SerializeField] private GameObject _parentGameObject;
+	[SerializeField] private AudioClip _breakWallClip;
 	private LoadSceneOnDestroy _loadSceneOnDestroy;
 
 	void Awake()
@@ -36,6 +37,12 @@ public class BreakableWall : MonoBehaviour
 				_wall.SetActive(false);
 				Invoke("DestroyObject", 1.0f);
 				//Destroy(_wall);
+				//play sound
+				if(_breakWallClip)
+				{
+					AudioPlayer _audioPlayer = FindAnyObjectByType<AudioPlayer>();
+					_audioPlayer.PlayAudio(_breakWallClip);
+				}
 			}
 		}
 	}
