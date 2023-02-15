@@ -31,6 +31,12 @@ public class DieOnOverlap : MonoBehaviour
             {
                 Invoke(KILL_METHODNAME, 3);
                 _renderer.enabled = false;
+                //Already destroy the hook so we cant hook while dead
+                hook _temp = FindFirstObjectByType<hook>();
+                if(_temp)
+                _temp.gameObject.SetActive(false);
+                //if(_temp)
+                //    Destroy(_temp);
             }
         }
     }
@@ -38,7 +44,10 @@ public class DieOnOverlap : MonoBehaviour
     const string KILL_METHODNAME = "Kill";
     void Kill()
     {
-        Destroy(FindFirstObjectByType<hook>().gameObject);
-        Destroy(transform.parent.gameObject);
+        //Destroy(FindFirstObjectByType<hook>().gameObject);
+        //Destroy(transform.parent.gameObject);
+
+        //Reload the level
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
