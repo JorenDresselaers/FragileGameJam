@@ -1341,16 +1341,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100744410}
     - target: {fileID: 2496192797741365426, guid: ccb47b0c63fdaa14a9a40860a17d54d5, type: 3}
-      propertyPath: retractspeed
-      value: 10
-      objectReference: {fileID: 0}
+      propertyPath: particle
+      value: 
+      objectReference: {fileID: 2496192797932686514}
     - target: {fileID: 2496192797741365427, guid: ccb47b0c63fdaa14a9a40860a17d54d5, type: 3}
       propertyPath: m_Name
       value: hook
-      objectReference: {fileID: 0}
-    - target: {fileID: 2496192797741365429, guid: ccb47b0c63fdaa14a9a40860a17d54d5, type: 3}
-      propertyPath: m_Mass
-      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 2496192797741365430, guid: ccb47b0c63fdaa14a9a40860a17d54d5, type: 3}
       propertyPath: m_RootOrder
@@ -1398,6 +1394,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ccb47b0c63fdaa14a9a40860a17d54d5, type: 3}
+--- !u!198 &2496192797932686514 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 2002288482692081732, guid: ccb47b0c63fdaa14a9a40860a17d54d5, type: 3}
+  m_PrefabInstance: {fileID: 2496192797932686513}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2861992299997870969
 PrefabInstance:
   m_ObjectHideFlags: 0
