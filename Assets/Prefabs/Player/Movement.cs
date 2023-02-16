@@ -17,7 +17,7 @@ public class Movement : MonoBehaviour
     private bool _isOnGround = false;
     [SerializeField] private bool _canMove = false;
 
-    [SerializeField] float _movementSpeed = 1;
+    [SerializeField] public float _movementSpeed = 1;
 
     public Animator _animator;
 
