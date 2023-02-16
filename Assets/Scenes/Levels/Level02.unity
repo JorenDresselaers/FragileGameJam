@@ -544,6 +544,10 @@ PrefabInstance:
       propertyPath: EndPoint
       value: 
       objectReference: {fileID: 1662812772}
+    - target: {fileID: 1744000488705865876, guid: a468487697b548041b01e2f2167541ea, type: 3}
+      propertyPath: _animator
+      value: 
+      objectReference: {fileID: 327204319}
     - target: {fileID: 4576846761443164576, guid: a468487697b548041b01e2f2167541ea, type: 3}
       propertyPath: m_RootOrder
       value: 16
@@ -609,6 +613,11 @@ PrefabInstance:
 --- !u!50 &327204318 stripped
 Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 4576846761443164583, guid: a468487697b548041b01e2f2167541ea, type: 3}
+  m_PrefabInstance: {fileID: 327204317}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &327204319 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 84729331, guid: a468487697b548041b01e2f2167541ea, type: 3}
   m_PrefabInstance: {fileID: 327204317}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &361281159
