@@ -9,6 +9,7 @@ public class hook : MonoBehaviour
 	private LineRenderer line;
 	private bool hooking = false;
 	private bool hooked = true;
+	private bool playparticle = true;
 	[SerializeField] private float hookspeed;
 	[SerializeField] private float retractspeed;
 	[SerializeField] private Rigidbody2D player;
@@ -60,6 +61,11 @@ public class hook : MonoBehaviour
 		{
 			hooked = true;
 			rb.constraints = RigidbodyConstraints2D.FreezeAll;
+			if (playparticle && hooked)
+			{
+				particle.Play();
+				playparticle = false;
+			}
 		}
 
 		if (hooked && M1)
@@ -89,7 +95,7 @@ public class hook : MonoBehaviour
 			hooking = true;
 			sprite.enabled = true;
 			line.enabled = true;
-
+			
 			Vector3 toHook = slingPos - player.transform.position;
 
 			float rotz = Mathf.Atan2(toHook.y, toHook.x) * Mathf.Rad2Deg;
@@ -107,6 +113,7 @@ public class hook : MonoBehaviour
 		rb.constraints = RigidbodyConstraints2D.None;
 		sprite.enabled = false;
 		line.enabled = false;
+		playparticle = true;
 	}
 
 	void OnCollisionEnter2D(Collision2D col)
