@@ -98,10 +98,10 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.1712656, y: 0.024466455}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -112,7 +112,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 9.07394, y: 1.3099087}
   m_EdgeRadius: 0
 --- !u!50 &2496192797741365429
 Rigidbody2D:
@@ -151,10 +151,12 @@ MonoBehaviour:
   retractspeed: 10
   player: {fileID: 0}
   particle: {fileID: 2002288482692081732}
+  ropeDistance: 0
   checkRadius: 0
   whatIsPlatform:
     serializedVersion: 2
     m_Bits: 0
+  _impactAudio: {fileID: 8300000, guid: 48be43fc889e8f141af65a2fd1f1f3bd, type: 3}
 --- !u!1 &7623305183010036877
 GameObject:
   m_ObjectHideFlags: 0

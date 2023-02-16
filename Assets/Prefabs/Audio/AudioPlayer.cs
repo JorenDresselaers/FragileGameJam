@@ -27,7 +27,7 @@ public class AudioPlayer : MonoBehaviour
     {
         for (int i = 0; i < _audioSources.Count; i++)
         {
-            if (!_audioSources[i].isPlaying)
+            if (!_audioSources[i].isPlaying || _audioSources[i].clip==_clip)
             {
                 _audioSources[i].clip = _clip;
                 _audioSources[i].Play();
