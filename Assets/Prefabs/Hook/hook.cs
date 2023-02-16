@@ -13,6 +13,7 @@ public class hook : MonoBehaviour
 	[SerializeField] private float retractspeed;
 	[SerializeField] private Rigidbody2D player;
 	[SerializeField] private ParticleSystem particle;
+	[SerializeField] private float ropeDistance;
 
 	public float checkRadius;
 	public LayerMask whatIsPlatform;
@@ -69,12 +70,20 @@ public class hook : MonoBehaviour
 			float rotz = Mathf.Atan2(toHook.y, toHook.x) * Mathf.Rad2Deg;
 			transform.rotation = Quaternion.Euler(0, 0, rotz);
 		}
+		else if (hooked && !M1)
+		{
+			Vector3 toHook = rb.transform.position - player.transform.position;
+
+			player.GetComponent<DistanceJoint2D>().distance = toHook.magnitude * 0.9f;
+		}
 
 
 	}
 
 	void ShootSling(Vector3 slingPos)
 	{
+		player.GetComponent<DistanceJoint2D>().distance = ropeDistance;
+
 		hooking = true;
 		sprite.enabled = true;
 		line.enabled = true;
