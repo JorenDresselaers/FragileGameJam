@@ -11,6 +11,8 @@ public class LoadSceneOnDestroy : MonoBehaviour
     [SerializeField] private GameObject _triggerWhenDestroyed;
     [SerializeField] private bool _triggeredAutomatically = false;
 
+    public List<GameObject> _destroyToExitList; //not used yet
+
     private bool _objectAssigned = false;
     private bool _hasTriggered = false;
 
