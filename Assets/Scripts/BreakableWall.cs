@@ -15,14 +15,14 @@ public class BreakableWall : MonoBehaviour
 	[SerializeField] private AudioClip _breakWallClip;
 	private LoadSceneOnDestroy _loadSceneOnDestroy;
 
-    private AudioPlayer _audioPlayer;
+	private AudioPlayer _audioPlayer;
 
-	void Awake()
+    void Awake()
 	{
 		_loadSceneOnDestroy = GetComponentInParent<LoadSceneOnDestroy>();
         if (_loadSceneOnDestroy) print("Loaded!");
 
-		_audioPlayer = FindAnyObjectByType<AudioPlayer>();
+        _audioPlayer = FindAnyObjectByType<AudioPlayer>();
     }
 
 	void OnTriggerEnter2D(Collider2D other)

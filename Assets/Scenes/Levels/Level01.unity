@@ -271,7 +271,11 @@ PrefabInstance:
     - target: {fileID: 1744000488705865876, guid: a468487697b548041b01e2f2167541ea, type: 3}
       propertyPath: _animator
       value: 
-      objectReference: {fileID: 1479832645}
+      objectReference: {fileID: 1359468144}
+    - target: {fileID: 2142311435782510011, guid: a468487697b548041b01e2f2167541ea, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4576846761443164576, guid: a468487697b548041b01e2f2167541ea, type: 3}
       propertyPath: m_RootOrder
       value: 5
