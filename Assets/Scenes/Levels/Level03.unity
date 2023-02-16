@@ -591,6 +591,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8919053473266026697, guid: cb9d0b3b04ed02b41a9824046972d1db, type: 3}
+      propertyPath: _levelName
+      value: Level04
+      objectReference: {fileID: 0}
+    - target: {fileID: 8919053473266026697, guid: cb9d0b3b04ed02b41a9824046972d1db, type: 3}
       propertyPath: _triggerWhenDestroyed
       value: 
       objectReference: {fileID: 0}
