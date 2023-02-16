@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class BreakableWall : MonoBehaviour
@@ -26,9 +27,30 @@ public class BreakableWall : MonoBehaviour
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
-		if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player"))
 		{
-			Vector3 playerVel = other.gameObject.GetComponent<Rigidbody2D>().velocity;
+            if (_loadSceneOnDestroy)
+            {
+                bool canLoadLevel = true;
+                foreach (var objective in _loadSceneOnDestroy._destroyToExitList)
+                {
+                    if (objective.GetComponentInChildren<BreakableWall>())
+                    {
+                        canLoadLevel = false;
+                    }
+                }
+
+                if (!canLoadLevel)
+                {
+                    Vector2 newVelocity = Vector2.zero;
+                    newVelocity.x = -1 * other.gameObject.GetComponentInParent<Rigidbody2D>().velocity.x;
+                    newVelocity.y = other.gameObject.GetComponentInParent<Rigidbody2D>().velocity.y;
+                    other.gameObject.GetComponentInParent<Rigidbody2D>().velocity = newVelocity;
+                    return;
+                }
+            }
+
+            Vector3 playerVel = other.gameObject.GetComponentInParent<Rigidbody2D>().velocity;
 			float playerSpeed = playerVel.magnitude;
 			if (CheckImpactAngle(playerVel, _impactAngle, _impactThreshold)) // Wall shattered!
 			{
@@ -37,7 +59,7 @@ public class BreakableWall : MonoBehaviour
 				wallInst.transform.localScale = tr.localScale;
 				wallInst.GetComponent<BrokenWall>().SetCollisionInvalid(other, playerVel.normalized);
 				_wall.SetActive(false);
-				Invoke("DestroyObject", 1.0f);
+                Invoke("DestroyObject", 1.0f);
 				//Destroy(_wall);
 				//play sound
 				if(_breakWallClip && _audioPlayer)
@@ -70,6 +92,7 @@ public class BreakableWall : MonoBehaviour
 	void DestroyObject()
 	{
 		if(_loadSceneOnDestroy) _loadSceneOnDestroy.LoadLevel();
-		Destroy(this);
+
+        Destroy(this);
     }
 }
