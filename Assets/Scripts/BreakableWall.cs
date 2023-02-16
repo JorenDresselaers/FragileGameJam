@@ -50,6 +50,15 @@ public class BreakableWall : MonoBehaviour
 		}
 	}
 
+	void OnCollisionEnter2D(Collision2D coll)
+	{
+		if (coll.gameObject.CompareTag("Player"))
+		{
+			Debug.Log("FUNNNNNYYYYY");
+
+		}
+	}
+
 	bool CheckImpactAngle(Vector3 impactVector, float impactAngle, float impactThreshold)
 	{
 		float playerSpeed = impactVector.magnitude;
