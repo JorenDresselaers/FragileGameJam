@@ -123,7 +123,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 896582f00df4ae6419875cd272182ef0, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.7607843}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -207,7 +207,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 896582f00df4ae6419875cd272182ef0, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.7607843}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -291,7 +291,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 896582f00df4ae6419875cd272182ef0, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.7607843}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -375,7 +375,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 896582f00df4ae6419875cd272182ef0, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.7607843}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -464,7 +464,6 @@ MonoBehaviour:
   _impactThreshold: 0.5
   _wall: {fileID: 6709494293694001110}
   _wallCollider2D: {fileID: 5287900088602476910}
-  _particleSystem: {fileID: 0}
   _brokenWall: {fileID: 6264765850770874877, guid: a020a39a6dcf0da4380144384cc2d915, type: 3}
   _parentGameObject: {fileID: 241949717962422180}
   _breakWallClip: {fileID: 8300000, guid: 5acf4690496d6c8459748c53afd28032, type: 3}
