@@ -19,6 +19,8 @@ public class hook : MonoBehaviour
 	public float checkRadius;
 	public LayerMask whatIsPlatform;
 
+	[SerializeField] private AudioClip _impactAudio;
+
 	bool M1 = false;
 
 
@@ -61,12 +63,17 @@ public class hook : MonoBehaviour
 		{
 			hooked = true;
 			rb.constraints = RigidbodyConstraints2D.FreezeAll;
-			if (playparticle && hooked)
-			{
-				particle.Play();
-				playparticle = false;
-			}
-		}
+			//if (playparticle && hooked)
+			//{
+			//	particle.Play();
+			//	playparticle = false;
+			//}
+   //         if (_impactAudio)
+   //         {
+   //             AudioPlayer _audioPlayer = FindAnyObjectByType<AudioPlayer>();
+   //             _audioPlayer.PlayAudio(_impactAudio);
+   //         }
+        }
 
 		if (hooked && M1)
 		{
@@ -116,9 +123,24 @@ public class hook : MonoBehaviour
 		playparticle = true;
 	}
 
-	void OnCollisionEnter2D(Collision2D col)
-	{
-		hooked = true;
-		particle.Play();
-	}
+    //void OnCollisionEnter2D(Collision2D col)
+    //{
+    //	//hooked = true;
+    //	//particle.Play();
+    //       if (_impactAudio)
+    //       {
+    //           AudioPlayer _audioPlayer = FindAnyObjectByType<AudioPlayer>();
+    //           _audioPlayer.PlayAudio(_impactAudio);
+    //       }
+    //   }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+		if (collision.gameObject.CompareTag("Player"))
+			return;
+        if (_impactAudio)
+        {
+            AudioPlayer _audioPlayer = FindAnyObjectByType<AudioPlayer>();
+            _audioPlayer.PlayAudio(_impactAudio);
+        }
+    }
 }
