@@ -21,6 +21,10 @@ public class Movement : MonoBehaviour
 
 	public Animator _animator;
 
+	[SerializeField] private AudioSource _skateAudioSource;
+	//[SerializeField] private AudioSource _jumpAudioSource;
+	//[SerializeField] private AudioSource _landAudioSource;
+
 	void Awake()
 	{
 		_rigidBody = GetComponent<Rigidbody2D>();
@@ -60,12 +64,12 @@ public class Movement : MonoBehaviour
 
 		}
 
+	}
 		void Jump(float jumpForce)
 		{
 			if (!_rigidBody) return;
 			_rigidBody.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);
 		}
-	}
 
 
 	private const string PlatformTag = "Platform";
@@ -74,6 +78,10 @@ public class Movement : MonoBehaviour
 		if (col.collider.CompareTag(PlatformTag))
 		{
 			_isOnGround = true;
+			//if(_landAudioSource)
+			//	_landAudioSource.Play();
+			if(_skateAudioSource)
+				_skateAudioSource.UnPause();
 		}
 	}
 
@@ -82,6 +90,10 @@ public class Movement : MonoBehaviour
 		if (col.collider.CompareTag(PlatformTag))
 		{
 			_isOnGround = false;
-		}
+            //if(_jumpAudioSource) 
+            //	_jumpAudioSource.Play();
+            if (_skateAudioSource)
+                _skateAudioSource.Pause();
+        }
 	}
 }
