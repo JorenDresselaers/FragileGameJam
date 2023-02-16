@@ -13,7 +13,7 @@ public class RopeV2 : MonoBehaviour
     private LineRenderer lineRenderer;
     private List<RopeSegment> ropeSegments = new List<RopeSegment>();
     private float ropeSegLen = 0.01f;
-    private int segmentLength = 50; // Amount of segments
+	private int segmentLength = 50; // Amount of segments
     private float lineWidth = 1.3f;
 
     // Use this for initialization

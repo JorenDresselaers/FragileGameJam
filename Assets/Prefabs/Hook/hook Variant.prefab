@@ -196,6 +196,10 @@ PrefabInstance:
       value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 2496192797741365426, guid: ccb47b0c63fdaa14a9a40860a17d54d5, type: 3}
+      propertyPath: ropeDistance
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2496192797741365426, guid: ccb47b0c63fdaa14a9a40860a17d54d5, type: 3}
       propertyPath: whatIsPlatform.m_Bits
       value: 256
       objectReference: {fileID: 0}
