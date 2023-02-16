@@ -49,6 +49,7 @@ MonoBehaviour:
   _timeToLoad: 3
   _triggerWhenDestroyed: {fileID: 6709494293694001110}
   _triggeredAutomatically: 0
+  _destroyToExitList: []
 --- !u!1 &2585897364309881858
 GameObject:
   m_ObjectHideFlags: 0
@@ -466,4 +467,4 @@ MonoBehaviour:
   _wallCollider2D: {fileID: 5287900088602476910}
   _brokenWall: {fileID: 6264765850770874877, guid: a020a39a6dcf0da4380144384cc2d915, type: 3}
   _parentGameObject: {fileID: 241949717962422180}
-  _breakWallClip: {fileID: 8300000, guid: 5acf4690496d6c8459748c53afd28032, type: 3}
+  _breakWallClip: {fileID: 8300000, guid: a32781947fad370419387585fe4904b6, type: 3}
