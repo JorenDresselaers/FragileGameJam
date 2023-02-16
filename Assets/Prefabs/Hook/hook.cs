@@ -82,18 +82,22 @@ public class hook : MonoBehaviour
 
 	void ShootSling(Vector3 slingPos)
 	{
-		player.GetComponent<DistanceJoint2D>().distance = ropeDistance;
+		if (!hooking)
+		{
+			player.GetComponent<DistanceJoint2D>().distance = ropeDistance;
 
-		hooking = true;
-		sprite.enabled = true;
-		line.enabled = true;
+			hooking = true;
+			sprite.enabled = true;
+			line.enabled = true;
 
-		Vector3 toHook = slingPos - player.transform.position;
+			Vector3 toHook = slingPos - player.transform.position;
 
-		float rotz = Mathf.Atan2(toHook.y, toHook.x) * Mathf.Rad2Deg;
-		transform.rotation = Quaternion.Euler(0, 0, rotz);
+			float rotz = Mathf.Atan2(toHook.y, toHook.x) * Mathf.Rad2Deg;
+			transform.rotation = Quaternion.Euler(0, 0, rotz);
 
-		rb.velocity = toHook * hookspeed;
+			rb.velocity = toHook * hookspeed;
+		}
+		
 	}
 
 	void RetractSling()
