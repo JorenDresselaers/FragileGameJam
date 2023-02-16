@@ -135,9 +135,9 @@ public class hook : MonoBehaviour
     //   }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-		if (collision.gameObject.CompareTag("Player"))
+		if (!collision.gameObject.CompareTag("Platform"))
 			return;
-        if (_impactAudio)
+		if (_impactAudio&&(hooking||hooked))
         {
             AudioPlayer _audioPlayer = FindAnyObjectByType<AudioPlayer>();
             _audioPlayer.PlayAudio(_impactAudio);
