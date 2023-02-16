@@ -5,10 +5,16 @@ using UnityEngine;
 public class AudioPlayer : MonoBehaviour
 {
     AudioSource _audioPlayer;
-    // Start is called before the first frame update
+    [SerializeField] private List<AudioSource> _audioSources = new List<AudioSource>();
+
     void Start()
     {
-        _audioPlayer = GetComponent<AudioSource>();
+        //_audioPlayer = GetComponent<AudioSource>();
+
+        //for (int i=0;i<4;i++)
+        //{
+        //	_audioSources.Add(new AudioSource());
+        //}
     }
 
     // Update is called once per frame
@@ -19,10 +25,16 @@ public class AudioPlayer : MonoBehaviour
 
     public void PlayAudio(AudioClip _clip)
     {
-        if (!_audioPlayer.isPlaying)
+        for (int i = 0; i < _audioSources.Count; i++)
         {
-            _audioPlayer.clip = _clip;
-            _audioPlayer.Play();
+            if (!_audioSources[i].isPlaying)
+            {
+                _audioSources[i].clip = _clip;
+                _audioSources[i].Play();
+                break;
+            }
         }
+        //_audioPlayer.clip = _clip;
+        //_audioPlayer.Play();
     }
 }
