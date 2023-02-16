@@ -1130,6 +1130,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BreakableWall (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 241949717962422180, guid: cb9d0b3b04ed02b41a9824046972d1db, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 468030508147376550, guid: cb9d0b3b04ed02b41a9824046972d1db, type: 3}
       propertyPath: m_RootOrder
       value: 14
@@ -1181,6 +1185,10 @@ PrefabInstance:
     - target: {fileID: 468030508147376550, guid: cb9d0b3b04ed02b41a9824046972d1db, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5287900088602476910, guid: cb9d0b3b04ed02b41a9824046972d1db, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8919053473266026697, guid: cb9d0b3b04ed02b41a9824046972d1db, type: 3}
       propertyPath: _timeToLoad
@@ -2005,7 +2013,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5583248885609202988, guid: a468487697b548041b01e2f2167541ea, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5583248885609202988, guid: a468487697b548041b01e2f2167541ea, type: 3}
       propertyPath: m_TagString
