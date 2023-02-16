@@ -9,7 +9,6 @@ public class BreakableWall : MonoBehaviour
 	[SerializeField] private float _impactThreshold = 5.0f;
 	[SerializeField] private GameObject _wall;
 	[SerializeField] private BoxCollider2D _wallCollider2D;
-	[SerializeField] private ParticleSystem _particleSystem;
 	[SerializeField] private GameObject _brokenWall;
 	[SerializeField] private GameObject _parentGameObject;
 	[SerializeField] private AudioClip _breakWallClip;
@@ -37,7 +36,6 @@ public class BreakableWall : MonoBehaviour
 				var wallInst = Instantiate(_brokenWall, tr.position, tr.rotation);
 				wallInst.transform.localScale = tr.localScale;
 				wallInst.GetComponent<BrokenWall>().SetCollisionInvalid(other, playerVel.normalized);
-				_particleSystem.Play();
 				_wall.SetActive(false);
 				Invoke("DestroyObject", 1.0f);
 				//Destroy(_wall);
